@@ -1,0 +1,25 @@
+---
+- name: our first play
+  hosts: futurama:!farnsworth
+  become: yes
+
+  tasks:
+          - name: learning more about copy module
+            copy:
+                    content: "Learning at 145 Chubb Way"
+                    dest: secondfloor.txt
+
+
+          - name: managing apt packages
+            apt:
+                    name: sl
+                    state: present
+ 
+- name: our second play
+  hosts: farnsworth
+  become: yes
+  tasks:
+          - name: managing yum
+            yum:
+                    name: sl
+                    state: present

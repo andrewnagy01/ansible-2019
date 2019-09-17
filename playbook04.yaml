@@ -1,0 +1,10 @@
+---
+- name: fetch secondfloor.txt from hosts
+  hosts: futurama
+  become: yes
+
+  tasks:
+          - name: learning more about copy module
+            fetch:
+                    src: secondfloor.txt
+                    dest: secondfloor_{{ inventory_hostname }}.txt

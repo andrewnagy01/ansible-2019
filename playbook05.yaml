@@ -1,0 +1,29 @@
+- name: just a little bit on loops
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+          myList:
+                  - "A hypheb is an eentry in a list"
+                  - "second entry"
+                  - "third entry"
+
+  tasks:
+          - name: demo lit loop
+            debug:
+                    msg: "this debug module allows us to display var: {{  item  }}"
+
+            loop: "{{  myList   }}"
+
+
+          - name: demo sec lit loop
+            debug:
+                    msg: "this debug module allows us to display var: {{  item  }}"
+
+            loop: "{{  myOtherList   }}"
+            vars:
+                    myOtherList:
+                            - Item1inlist
+                            - Item2inlist
+
+

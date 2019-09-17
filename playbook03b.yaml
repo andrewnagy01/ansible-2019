@@ -1,0 +1,24 @@
+---
+- name: our first play
+  hosts: futurama
+
+  tasks:
+          - name: learning more about copy module
+            copy:
+                    content: "Learning at 145 Chubb Way"
+                    dest: secondfloor.txt
+
+
+          - name: managing apt packages
+            apt:
+                    name: sl
+                    state: present
+            become: yes
+            when: ansible_distribution == "Ubuntu"
+
+          - name: managing yum packages
+            yum:
+                    name: sl
+                    state: present
+            become: yes
+            when: ansible_distribution == "CentOS"
